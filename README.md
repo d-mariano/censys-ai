@@ -2,7 +2,7 @@
 
 AI-powered assistant for analyzing and summarizing Censys cybersecurity datasets with a clean, modern interface.
 
-![Censys AI Screenshot](https://via.placeholder.com/800x500.png?text=Censys+AI+Interface)
+![Censys AI Screenshot](screenshot.png)
 
 ## Features
 
@@ -52,12 +52,6 @@ uv pip install -e ".[dev]"
 uv run start
 ```
 
-#### Development Commands
-- Run tests: `uv run test`
-- Lint code: `uv run lint`
-- Format code: `uv run format`
-- Generate OpenAPI docs: `uv run docs`
-
 ### Frontend Setup
 
 ```bash
@@ -98,10 +92,23 @@ censys-ai/
 ```
 
 ## Development Workflow
-- Use `uv` for all Python dependency management and scripts
-- Use `npm` for frontend development
-- Edit `pyproject.toml` to manage dependencies and scripts
-- See `specs/stories/` for user stories and acceptance criteria
+- Made use of Claude to iterate on specs, see `specs/Censys AI Summarization Agent - Project Specifications.pdf` for original version
+- Made changes and stored them in `specs/censys_ai_specs.md`
+- Split requirements into individual story specs in `specs/stories/`
+- Used Windsurf to assist in spec implementation
+- Your mileage may vary, had to make some changes to the specs to get them to work, also reduced scope of some specs to make them more achievable
+
+## Future Enhancements
+- Improve UI in terms of both user experience and code quality
+    - Better error reporting
+    - File upload support
+    - Conversational UI?
+- Improve prompt engineering to use more specialized instructions per dataset, lean on Censys docs for more info
+- Support streaming
+- If supporting a conversational experience, add support for saving conversation history
+- Add support for saving results to a file
+- Potentially use an actual thought loop to iterate on datasets and specific questions
+- Potentially make datasets more RAGable for better context and more specific questions
 
 ## References
 - [Censys Platform Datasets](https://docs.censys.com/docs/platform-datasets)
