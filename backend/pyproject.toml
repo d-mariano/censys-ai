@@ -1,0 +1,35 @@
+[build-system]
+requires = ["uv_build>=0.7.21,<0.8.0"]
+build-backend = "uv_build"
+
+[project]
+name = "censys-ai"
+version = "0.1.0"
+description = "AI-powered summarization for Censys cybersecurity data"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Dave Mariano"},
+]
+dependencies = [
+    "fastapi[all]>=0.95.0",
+    "uvicorn[standard]>=0.21.1",
+    "python-dotenv>=1.0.0",
+    "pydantic>=1.10.7",
+    "litellm>=0.1.0",
+    "python-multipart>=0.0.6",
+    "google-cloud-aiplatform>=1.104.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.3.1",
+    "pytest-cov>=4.0.0",
+    "black>=23.3.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.2.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.24.0",
+]
