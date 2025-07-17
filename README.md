@@ -117,20 +117,24 @@ censys-ai/
 * also reduced scope of some specs to make them more achievable
 
 ## Future Enhancements
-* Add E2E tests
-* Add evaluation of the summarization results
-* Improve test coverage
+* Improve prompt engineering:
+    * Use more specialized instructions per dataset, lean on Censys docs for more info
+    * Provide stronger instructions for a more consistent output and structure
+    * Potentially use structured output to break summary into specific sections and request reasoning for each section
 * Improve UI in terms of both user experience and code quality
+    * Support streaming
     * Improve error reporting, especially for malformed or invalid datasets
     * File upload support
     * Conversational UI?
-* Improve prompt engineering to use more specialized instructions per dataset, lean on Censys docs for more info
-* Support streaming
+    * Actually break out reusable components
 * If supporting a conversational experience, add support for saving conversation history
 * Add support for saving results to a file
 * Potentially use an actual thought loop to iterate on datasets and specific questions
 * Potentially make datasets more RAGable for better context and more specific questions
 * CI/CD for deployment
+* Add E2E tests
+* Add evaluation of the summarization results
+* Improve test coverage
 * Observability
 
 ## References

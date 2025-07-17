@@ -14,7 +14,6 @@ import {
 import { IconServer, IconWorld, IconCertificate, IconAlertCircle } from '@tabler/icons-react';
 import Markdown from 'react-markdown'
 import { SummarizationApi } from './api/summarization';
-import './App.css';
 import type { SummarizationResponse } from './api/openapi';
 
 function App() {
@@ -69,7 +68,7 @@ function App() {
       </Flex>
 
       <Flex display="flex" direction="row" justify="center" align="flex-start" flex={1} gap="md">
-        <Paper withBorder className="card" style={{flex: 1, height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: 5}}>
+        <Paper withBorder style={{flex: 1, height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: 5}}>
           {error ? <Alert variant="light" color="red" title="Something Went Wrong" icon={<IconAlertCircle />}>
             {error}
           </Alert> : (
@@ -81,19 +80,19 @@ function App() {
       </Flex>
 
       <Flex display="flex" direction="row" justify="center" align="flex-start" flex={1} gap="md">
-        <Paper withBorder className="card" style={{minHeight: 200, flex: 1, padding: 5}}>
+        <Paper withBorder style={{height: "100%", flex: 1, padding: 5}}>
           <IconServer size={32} stroke={1.5} />
           {isLoading ? <Text style={{ textAlign: "center" }}>Generating summary...</Text> : (
             summary?.hosts_summary ? <div style={{ maxHeight: 350, overflowY: "auto"}}><Markdown>{summary.hosts_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a hosts dataset below</Text>
           )}
         </Paper>
-        <Paper withBorder className="card" style={{minHeight: 200, flex: 1, padding: 5}}>
+        <Paper withBorder style={{height: "100%", flex: 1, padding: 5}}>
           <IconWorld size={32} stroke={1.5} />
           {isLoading ? <Text style={{ textAlign: "center" }}>Generating summary...</Text> : (
             summary?.web_properties_summary ? <div style={{ maxHeight: 350, overflowY: "auto"}}><Markdown>{summary.web_properties_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a web properties dataset below</Text>
           )}
         </Paper>
-        <Paper withBorder className="card" style={{minHeight: 200, flex: 1, padding: 5}}>
+        <Paper withBorder style={{height: "100%", flex: 1, padding: 5}}>
           <IconCertificate size={32} stroke={1.5} />
           {isLoading ? <Text style={{ textAlign: "center" }}>Generating summary...</Text> : (
             summary?.certificates_summary ? <div style={{ maxHeight: 350, overflowY: "auto"}}><Markdown>{summary.certificates_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a certificates dataset below</Text>
