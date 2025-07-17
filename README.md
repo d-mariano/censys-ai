@@ -6,34 +6,29 @@ AI-powered assistant for analyzing and summarizing Censys cybersecurity datasets
 
 ## Features
 
-- 🚀 **Modern Tech Stack**
-  - FastAPI backend with Python 3.10+
-  - React + TypeScript + Mantine UI frontend
-  - End-to-end type safety with OpenAPI
+* 🚀 **Modern Tech Stack**
+  * FastAPI backend with Python 3.10+
+  * React + TypeScript + Mantine UI frontend
+  * End-to-end type safety with OpenAPI
 
-- 🔍 **Powerful Analysis**
-  - Simultaneously analyze multiple Censys datasets
-  - Individual and combined dataset summarization
-  - Interactive results with Markdown rendering
+* 🔍 **Powerful Analysis**
+  * Simultaneously analyze multiple Censys datasets
+  * Individual and combined dataset summarization
+  * Interactive results with Markdown rendering
 
-- 🛠 **Developer Friendly**
-  - Modular summarization pipeline with LiteLLM
-  - Modern dependency management with [uv](https://docs.astral.sh/uv/)
-  - Comprehensive error handling and loading states
-  - Responsive design for all screen sizes
+* 🛠 **Developer Friendly**
+  * Modular summarization pipeline with LiteLLM
+  * Modern dependency management with [uv](https://docs.astral.sh/uv/)
+  * Comprehensive error handling and loading states
+  * Responsive design for all screen sizes
 
 ## Requirements
-- Python 3.10+
-- Node.js 18+
-- [uv](https://docs.astral.sh/uv/) (install via `curl -LsSf https://astral.sh/uv/install.sh | sh`)
-- npm (comes with Node.js)
+* Python 3.10+
+* Node.js 22+
+* [uv](https://docs.astral.sh/uv/) (install via `curl -LsSf https://astral.sh/uv/install.sh | sh`)
+* [Yarn](https://yarnpkg.com/) (install via `npm install --global yarn`)
 
 ## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.12+
-- Node.js 22+
-- [uv](https://docs.astral.sh/uv/) (install via `curl -LsSf https://astral.sh/uv/install.sh | sh`)
 
 ### Backend Setup
 
@@ -43,14 +38,19 @@ cd backend
 
 # Create and activate virtual environment
 uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate
 
 # Install dependencies
-uv pip install -e ".[dev]"
+uv sync --all-extra
 
 # Start the development server
-uv run start
+python main.py
+
+# Copy .env.example to .env and fill in your OpenAI API key
+cp src/censys_ai/.env.example src/censys_ai/.env
 ```
+
+**Keep an eye on the terminal for any errors, i.e lack of OpenAI API key.**
 
 ### Frontend Setup
 
@@ -59,13 +59,30 @@ uv run start
 cd frontend
 
 # Install dependencies
-npm install
+yarn install
 
 # Start the development server
-npm start
+yarn dev
 ```
 
-The frontend will be available at `http://localhost:5173`
+See terminal for the frontend URL, it will likely be `http://localhost:5173`
+
+**You are now ready to summarize some Censys data!**
+
+## Usage
+
+* After starting the backend and frontend servers, you can access the application at `http://localhost:5173`
+* You will notice text fields on the bottom of the screen, and a button that says `Summarize`
+* Simply copy and paste the contents of the example dataset files into their appropriate text fields, and click `Summarize`
+* The results will be displayed in their respective sections above
+* You do not need to populate all dataset fields, but at least one is required
+
+## Model Configuration
+
+* If you do not wish to use the default model, you can update the `MODEL` environment variable in [backend/src/censys_ai/.env](backend/src/censys_ai/.env.example) **(Make sure to copy the example to a `.env` file)**
+* LiteLLM is used under the hood, so any model supported by LiteLLM is supported by this application
+* See [LiteLLM](https://docs.litellm.ai/docs/) for more info on which models to use and how to configure them.
+
 
 ## Project Structure
 
@@ -92,33 +109,37 @@ censys-ai/
 ```
 
 ## Development Workflow
-- Made use of Claude to iterate on specs, see `specs/Censys AI Summarization Agent - Project Specifications.pdf` for original version
-- Made changes and stored them in `specs/censys_ai_specs.md`
-- Split requirements into individual story specs in `specs/stories/`
-- Used Windsurf to assist in spec implementation
-- Your mileage may vary, had to make some changes to the specs to get them to work, also reduced scope of some specs to make them more achievable
+* Made use of Claude to iterate on specs, see `specs/Censys AI Summarization Agent - Project Specifications.pdf`
+* Made changes and stored them in [specs/censys_ai_specs.md](specs/censys_ai_specs.md)
+* Split requirements into individual story specs in [specs/stories/](specs/stories/)
+* Used Windsurf to assist in spec implementation
+* Your mileage may vary, had to make some changes to the specs to get them to work
+* also reduced scope of some specs to make them more achievable
 
 ## Future Enhancements
-- Improve UI in terms of both user experience and code quality
-    - Better error reporting
-    - File upload support
-    - Conversational UI?
-- Improve prompt engineering to use more specialized instructions per dataset, lean on Censys docs for more info
-- Support streaming
-- If supporting a conversational experience, add support for saving conversation history
-- Add support for saving results to a file
-- Potentially use an actual thought loop to iterate on datasets and specific questions
-- Potentially make datasets more RAGable for better context and more specific questions
+* Add E2E tests
+* Add evaluation of the summarization results
+* Improve test coverage
+* Improve UI in terms of both user experience and code quality
+    * Better error reporting, especially for malformed or invalid datasets
+    * File upload support
+    * Conversational UI?
+* Improve prompt engineering to use more specialized instructions per dataset, lean on Censys docs for more info
+* Support streaming
+* If supporting a conversational experience, add support for saving conversation history
+* Add support for saving results to a file
+* Potentially use an actual thought loop to iterate on datasets and specific questions
+* Potentially make datasets more RAGable for better context and more specific questions
 
 ## References
-- [Censys Platform Datasets](https://docs.censys.com/docs/platform-datasets)
-- [Censys Host Dataset](https://docs.censys.com/docs/platform-host-dataset)
-- [Censys Web Property Dataset](https://docs.censys.com/docs/platform-web-property-dataset)
-- [Censys Certificate Dataset](https://docs.censys.com/docs/platform-certificate-dataset)
-- [uv Documentation](https://docs.astral.sh/uv/)
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Mantine UI](https://mantine.dev/)
-- [LiteLLM](https://github.com/BerriAI/litellm)
+* [Censys Platform Datasets](https://docs.censys.com/docs/platform-datasets)
+* [Censys Host Dataset](https://docs.censys.com/docs/platform-host-dataset)
+* [Censys Web Property Dataset](https://docs.censys.com/docs/platform-web-property-dataset)
+* [Censys Certificate Dataset](https://docs.censys.com/docs/platform-certificate-dataset)
+* [uv Documentation](https://docs.astral.sh/uv/)
+* [FastAPI](https://fastapi.tiangolo.com/)
+* [Mantine UI](https://mantine.dev/)
+* [LiteLLM](https://github.com/BerriAI/litellm)
 
 ---
 
