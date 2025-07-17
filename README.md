@@ -121,7 +121,7 @@ censys-ai/
 * Add evaluation of the summarization results
 * Improve test coverage
 * Improve UI in terms of both user experience and code quality
-    * Better error reporting, especially for malformed or invalid datasets
+    * Improve error reporting, especially for malformed or invalid datasets
     * File upload support
     * Conversational UI?
 * Improve prompt engineering to use more specialized instructions per dataset, lean on Censys docs for more info
@@ -130,6 +130,8 @@ censys-ai/
 * Add support for saving results to a file
 * Potentially use an actual thought loop to iterate on datasets and specific questions
 * Potentially make datasets more RAGable for better context and more specific questions
+* CI/CD for deployment
+* Observability
 
 ## References
 * [Censys Platform Datasets](https://docs.censys.com/docs/platform-datasets)
