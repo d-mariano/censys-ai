@@ -31,8 +31,8 @@ AI-powered assistant for analyzing and summarizing Censys cybersecurity datasets
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.10+
-- Node.js 18+
+- Python 3.12+
+- Node.js 22+
 - [uv](https://docs.astral.sh/uv/) (install via `curl -LsSf https://astral.sh/uv/install.sh | sh`)
 
 ### Backend Setup
@@ -65,7 +65,7 @@ npm install
 npm start
 ```
 
-The frontend will be available at `http://localhost:3000`
+The frontend will be available at `http://localhost:5173`
 
 ## Project Structure
 
