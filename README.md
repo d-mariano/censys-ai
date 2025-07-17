@@ -73,7 +73,8 @@ See terminal for the frontend URL, it will likely be `http://localhost:5173`
 
 * After starting the backend and frontend servers, you can access the application at `http://localhost:5173`
 * You will notice text fields on the bottom of the screen, and a button that says `Summarize`
-* Simply copy and paste the contents of the example dataset files into their appropriate text fields, and click `Summarize`
+* Simply copy and paste the contents of dataset files into their appropriate text fields, and click `Summarize`
+* See [example datasets](example_datasets/) for some example datasets to use
 * The results will be displayed in their respective sections above
 * You do not need to populate all dataset fields, but at least one is required
 
