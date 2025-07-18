@@ -23,7 +23,7 @@ AI-powered assistant for analyzing and summarizing Censys cybersecurity datasets
   * Responsive design for all screen sizes
 
 ## Requirements
-* Python 3.10+
+* Python 3.12+
 * Node.js 22+
 * [uv](https://docs.astral.sh/uv/) (install via `curl -LsSf https://astral.sh/uv/install.sh | sh`)
 * [Yarn](https://yarnpkg.com/) (install via `npm install --global yarn`)
