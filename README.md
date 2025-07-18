@@ -121,6 +121,7 @@ censys-ai/
 * Improve prompt engineering:
     * Use more specialized instructions per dataset, lean on Censys docs for more info
     * Provide stronger instructions for a more consistent output and structure
+    * Introduce citations
     * Potentially use structured output to break summary into specific sections and request reasoning for each section
 * Improve UI in terms of both user experience and code quality
     * Support streaming
