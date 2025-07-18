@@ -133,11 +133,12 @@ censys-ai/
 * Add support for saving results to a file
 * Potentially use an actual thought loop to iterate on datasets and specific questions
 * Potentially make datasets more RAGable for better context and more specific questions
-* CI/CD for deployment
+* Improve test coverage
 * Add E2E tests
 * Add evaluation of the summarization results
-* Improve test coverage
-* Observability
+* Add linting and pre-commit hooks
+* Configure CI/CD
+* Configure Observability, both OTEL and LLM monitoring
 
 ## References
 * [Censys Platform Datasets](https://docs.censys.com/docs/platform-datasets)
