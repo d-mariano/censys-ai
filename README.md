@@ -82,7 +82,7 @@ See terminal for the frontend URL, it will likely be `http://localhost:5173`
 
 * If you do not wish to use the default model, you can update the `MODEL` environment variable in [backend/src/censys_ai/.env](backend/src/censys_ai/.env.example) **(Make sure to copy the example to a `.env` file)**
 * LiteLLM is used under the hood, so any model supported by LiteLLM is supported by this application
-* See [LiteLLM](https://docs.litellm.ai/docs/) for more info on which models to use and how to configure them.
+* See [LiteLLM](https://docs.litellm.ai/docs/) for more info on which models to use and how to configure them
 
 
 ## Project Structure
