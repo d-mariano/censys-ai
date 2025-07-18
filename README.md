@@ -110,12 +110,13 @@ censys-ai/
 ```
 
 ## Development Workflow
-* Made use of Claude to iterate on specs, see `specs/Censys AI Summarization Agent - Project Specifications.pdf`
-* Made changes and stored them in [specs/censys_ai_specs.md](specs/censys_ai_specs.md)
-* Split requirements into individual story specs in [specs/stories/](specs/stories/)
+* Made use of Claude to iterate on specs, see `specs/Censys AI Summarization Agent - Project Specifications.pdf` for original
+* Made changes and stored new version in [specs/censys_ai_specs.md](specs/censys_ai_specs.md)
+* Split requirements into individual story specs, see [specs/stories/](specs/stories/)
 * Used Windsurf to assist in spec implementation
-* Your mileage may vary, had to make some changes to the specs to get them to work
-* also reduced scope of some specs to make them more achievable
+* Your mileage may vary, had to make some changes to the specs themselves, include additional prompting on the fly, and you should always reference documentation and files when you can
+* Reduced scope of some specs to make them more achievable
+* Reduced scope of project by not implementing all specs
 
 ## Future Enhancements
 * Improve prompt engineering:
