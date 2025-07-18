@@ -50,16 +50,21 @@ function App() {
   };
 
   return (
-    <Flex gap="md" style={{
-      display: "flex",
-      flexDirection: "column",
-      width: "100%",
-      height: "100%",
-      maxHeight: "100%",
-      maxWidth: 1920,
-      margin: "auto",
-      padding: 20,
-    }}>
+    <Flex
+      gap="sm"
+      display="flex"
+      direction="column"
+      justify="flex-start"
+      align="stretch"
+      style={{
+        width: "100%",
+        height: "100%",
+        maxHeight: "100%",
+        maxWidth: 1920,
+        margin: "auto",
+        padding: 10,
+      }}
+    >
       <Flex display="flex" direction="row" justify="space-between" align="center" gap="md">
         <a href="https://censys.io/" target="_blank" rel="noopener noreferrer">
           <img src={censysLogo} alt="Censys logo" height="50" />
@@ -67,35 +72,35 @@ function App() {
         <h1>Censys AI</h1>
       </Flex>
 
-      <Flex display="flex" direction="row" justify="center" align="flex-start" flex={1} gap="md">
-        <Paper withBorder style={{flex: 1, height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: 5}}>
+      <Flex display="flex" direction="row" justify="center" align="flex-start" gap="md">
+        <Paper withBorder style={{maxHeight: 350, flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: 5}}>
           {error ? <Alert variant="light" color="red" title="Something Went Wrong" icon={<IconAlertCircle />}>
             {error}
           </Alert> : (
             isLoading ? <Loader /> : (
-              summary ? <div style={{ maxHeight: 400, overflowY: "auto"}}><Markdown>{summary.summary || 'N/A'}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a dataset below</Text>
+              summary ? <div style={{ height: 350, overflowY: "auto"}}><Markdown>{summary.summary || 'N/A'}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a dataset below</Text>
             )
           )}
         </Paper>
       </Flex>
 
-      <Flex display="flex" direction="row" justify="center" align="flex-start" flex={1} gap="md">
+      <Flex display="flex" direction="row" justify="center" align="flex-start" gap="md">
         <Paper withBorder style={{height: "100%", flex: 1, padding: 5}}>
           <IconServer size={32} stroke={1.5} />
           {isLoading ? <Text style={{ textAlign: "center" }}>Generating summary...</Text> : (
-            summary?.hosts_summary ? <div style={{ maxHeight: 350, overflowY: "auto"}}><Markdown>{summary.hosts_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a hosts dataset below</Text>
+            summary?.hosts_summary ? <div style={{ maxHeight: 400, overflowY: "auto"}}><Markdown>{summary.hosts_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a hosts dataset below</Text>
           )}
         </Paper>
         <Paper withBorder style={{height: "100%", flex: 1, padding: 5}}>
           <IconWorld size={32} stroke={1.5} />
           {isLoading ? <Text style={{ textAlign: "center" }}>Generating summary...</Text> : (
-            summary?.web_properties_summary ? <div style={{ maxHeight: 350, overflowY: "auto"}}><Markdown>{summary.web_properties_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a web properties dataset below</Text>
+            summary?.web_properties_summary ? <div style={{ maxHeight: 400, overflowY: "auto"}}><Markdown>{summary.web_properties_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a web properties dataset below</Text>
           )}
         </Paper>
         <Paper withBorder style={{height: "100%", flex: 1, padding: 5}}>
           <IconCertificate size={32} stroke={1.5} />
           {isLoading ? <Text style={{ textAlign: "center" }}>Generating summary...</Text> : (
-            summary?.certificates_summary ? <div style={{ maxHeight: 350, overflowY: "auto"}}><Markdown>{summary.certificates_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a certificates dataset below</Text>
+            summary?.certificates_summary ? <div style={{ height: 400, overflowY: "auto"}}><Markdown>{summary.certificates_summary}</Markdown></div> : <Text style={{ textAlign: "center" }}>Upload a certificates dataset below</Text>
           )}
         </Paper>
       </Flex>
@@ -140,11 +145,11 @@ function App() {
         </Paper>
       </Flex>
 
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <Flex justify="center" align="center" style={{ paddingBottom: 15 }}>
         <Button variant="filled" onClick={handleSubmit} disabled={isLoading || (!hostsQuery && !webPropertiesQuery && !certificatesQuery)}>
           Summarize
         </Button>
-      </div>
+      </Flex>
     </Flex>
   )
 }
